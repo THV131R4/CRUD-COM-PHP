@@ -1,0 +1,288 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#conteudo {
+	width: 100%;
+    height: 100%;
+	position: absolute;
+	background-image: url("../imagem/fundo1.jpg");
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+}
+
+#faixaSuperior {
+	width: 100%;
+	height: 16%;
+	margin-top: 1%;
+	background-color: white; 
+}
+
+#imagemPrefeitura {
+	width: 20%;
+	height: 60%; 
+	/*--display: block;*/
+	display: table-cell;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-left: 41%;
+    padding-top: 1.8%;
+    padding-bottom: 3%;
+    /*margin-right: auto;*/
+}
+
+#faixaLogoMaisEducacao {
+	width: 100%;
+	height: 22%;
+	position: absolute;
+	display: table-cell;
+    margin-top: 0.5%;
+    /*margin-left: 36%;*/
+}
+
+#logoMaisEducacao {
+	width: 30%;
+	height: 100%;
+	display: table-cell;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-left: 36%;
+    margin-right: auto;
+}
+
+#cardLogin {
+	width: 25%;
+	height: 30%;
+	position: absolute;
+	margin-left: 38.5%;
+    margin-right: auto;
+	margin-top: 12%;
+	border-radius: 7px;
+	background-color: white;
+	overflow: hidden;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+	transition: 0.3s;
+}
+
+#cardLogin:hover {
+	overflow: auto;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);	
+}
+
+#formulario {
+	margin-top: 5%;
+    margin-left: 5%;
+}
+
+.labelPgLogin {
+	font-size: x-small;
+	margin-left: 2%;
+}
+
+.inputPgLogin { /*input password*/
+	width: 60%;
+	height: 13%;
+	margin-top: 4%;
+	font-size: x-small;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: transparent;
+	background-color: #E3F4C5;
+}
+
+#btnAcessar {
+	padding: 15px 32px;
+	margin-top: 5%;
+    margin-left: 30%;	
+    font-size: x-small;
+	background-color: #269B5D; /* Green */
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	transition-duration: 0.3s;
+}
+
+#btnAcessar:hover {
+	background-color: #34c277; /* Green */
+}
+
+#alertaLoginIncorreto {/*toast de login incorreto*/
+	width: 25%;
+	height: 10%;
+	position: absolute;
+	margin-left: 38.5%;
+    margin-right: auto;
+	margin-top: 27%;
+	border-radius: 7px;
+	background-color: #ffa500;
+	overflow: hidden;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+	transition: 0.3s;
+	display: table-cell;
+    text-align: center;
+    opacity: 1;
+  	transition: opacity .5s linear;
+}
+
+#alertaLoginIncorreto:hover {
+	overflow: auto;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);	
+}
+
+#alertaLoginIncorreto p {
+	margin-top: 6%;
+}
+
+
+/***********************************MOBILE**********************/
+@media screen and (max-device-width: 720px){
+
+	#conteudo {
+		width: 100%;
+	    height: 100%;
+		position: absolute;
+		background-image: url("../imagem/fundo1.jpg");
+		background-repeat: no-repeat;
+	  	background-attachment: fixed;
+	  	background-size: cover;
+	}
+
+	#faixaSuperior {
+		width: 50%;
+		height: 12%;
+		float: left;
+		margin-top: 2%;
+		background-color: white; 
+		min-height: 10em;
+    	display: table-cell;
+   		vertical-align: middle;
+	}
+
+	#imagemPrefeitura {
+		width: 100%;
+		height: 53%; 
+		/*--display: block;*/
+		display: table-cell;
+	    vertical-align: middle;
+	    margin-right: auto;
+	    margin-left: auto;
+	   	margin-top: 8%;
+	}
+
+	#faixaLogoMaisEducacao {
+		/*width: 50%;*/
+		/*height: 13.8%;*/
+		margin-left: 50%;
+		/*display: table-cell;*/
+	    /*margin-top: 2%;*/
+	    /*background-color: white;*/
+	 	
+	 	width: 50%;
+		height: 12%;
+		float: right;
+		margin-top: 2%;
+		background-color: white; 
+		min-height: 10em;
+    	display: table-cell;
+   		vertical-align: middle;   
+	}
+
+	#logoMaisEducacao {
+		width: 100%;
+		height: 69%;
+		display: table-cell;
+	    vertical-align: middle;
+	    margin-left: auto;
+	 	margin-top: 7%;   
+	}
+
+
+	#cardLogin {
+		width: 78%;
+		height: 30%;
+		position: absolute;
+		margin-left: 10%;
+	    margin-right: auto;
+		margin-top: 48%;
+		border-radius: 7px;
+		background-color: white;
+		overflow: auto;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+		transition: 0.3s;
+	}
+
+	#cardLogin:hover {
+		overflow: auto;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);	
+	}
+
+
+	#formulario {
+		margin-top: 5%;
+	    margin-left: 5%;
+	}
+
+	.labelPgLogin {
+		font-size: xx-large;
+		margin-left: 2%;
+	}
+
+	.inputPgLogin { /*input password*/
+		width: 70%;
+		height: 20%;
+		margin-top: 4%;
+		font-size: xx-large;
+		border-style: solid;
+		border-width: 1px 1px 1px 1px;
+		border-color: transparent;
+		background-color: #E3F4C5;
+	}
+
+	#btnAcessar {
+		padding: 37px 80px;
+		margin-top: 5%;
+	    margin-left: 30%;	
+	    font-size: xx-large;
+		background-color: #269B5D; /* Green */
+		border: none;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	#alertaLoginIncorreto {/*toast de login incorreto*/
+		
+	    width: 78%;
+		height: 10%;
+		position: absolute;
+		margin-left: 10%;
+	    margin-right: auto;
+		margin-top: 100%;
+		border-radius: 7px;
+		background-color: #ffa500;
+		overflow: hidden;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+		transition: 0.3s;
+		display: table-cell;
+	    text-align: center;
+	}
+
+	#alertaLoginIncorreto:hover {
+		overflow: auto;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);	
+	}
+
+	#alertaLoginIncorreto p {
+		margin-top: 8%;
+		font-size: xx-large;
+	}
+
+}

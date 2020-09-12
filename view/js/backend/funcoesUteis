@@ -1,0 +1,39 @@
+function separaNascimento(dataNascimento) {
+    var ano_atual = new Date().getFullYear();
+	var data_aniversario = "2020-10-11";
+	var dia_informado = data_aniversario.split('-')[2];
+	var mes_informado = data_aniversario.split('-')[1];
+	var ano_informado = data_aniversario.split('-')[0];
+}
+
+function idade(ano_aniversario, mes_aniversario, dia_aniversario) {
+    var d = new Date,
+        ano_atual = d.getFullYear(),
+        mes_atual = d.getMonth() + 1,
+        dia_atual = d.getDate(),
+
+        ano_aniversario = +ano_aniversario,
+        mes_aniversario = +mes_aniversario,
+        dia_aniversario = +dia_aniversario,
+
+        quantos_anos = ano_atual - ano_aniversario;
+
+    if (mes_atual < mes_aniversario || mes_atual == mes_aniversario && dia_atual < dia_aniversario) {
+        quantos_anos--;
+    }
+
+    return quantos_anos < 0 ? 0 : quantos_anos;
+}
+
+
+
+else if(cidade=="BA" && calcularIdade(dataNascimento)<18){
+    alert('Cadastro recusado, idade inferior ao permitido!');
+}
+else if(cidade="SP" && rg==''){
+    alert('Preencha RG');
+}
+
+
+INSERT INTO table_name (col1, col2,...) VALUES ('val1', 'val2'...);
+SELECT LAST_INSERT_ID()
