@@ -16,7 +16,7 @@
 		}
 
 		public function query($query){
-			//echo "O metodo query esta rebendo a seguinte query: ".$query."<br>";
+			echo "O metodo query esta rebendo a seguinte query: ".$query."<br>";
 			//echo (empty($query) ? "query vazia!<br>" : "query ocupada!<br>");
 			$query = $this->conexao->prepare($query);
 			if ($query->execute()){

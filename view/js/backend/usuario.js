@@ -26,12 +26,6 @@ function validarCampos(){
         return false;
     } 
 
-    else if (verificarEmailExistente(email)){
-        alert("Preencha outro email");
-        document.getElementById("email").focus();
-        return false;
-    }
-
     else if ((senha==='' || senha === undefined) && (idUsuario==='' || idUsuario === undefined)){
         alert("Prencha a senha da usuario!");
         document.getElementById("senha").focus();
@@ -203,18 +197,3 @@ function pesquisar(){
     }
 }
 
-
-function verificarEmailExistente(email){
-    $.ajax({
-        type: "POST",
-        url: "../../controller/ctr_verificar_email.php",
-        dados: {"email":email},   
-        success: function (plainObject) {
-                console.log(plainObject);
-            if(plainObject!=''){
-                //alert('Email existente na base de dados, insira outro email!');
-                return true;
-            } 
-        }
-    }); 
-}

@@ -135,18 +135,6 @@
 		}
 
 
-		public function verificarEmailExistente(){
-			$query = "
-					SELECT 1 
-					FROM usuario 
-					WHERE usuario.email LIKE trim('".$this->email."') AND 
-					usuario.excluido IS NULL LIMIT 1;
-			";
-			$dados = $this->bd->query($query);
-			$dados = $dados->fetch(PDO::FETCH_ASSOC);
-			echo $dados;
-		}
-
 		
 		public function verificarLogin(){
 			if($this->email==='' || $this->senha=='') {
