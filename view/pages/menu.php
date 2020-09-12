@@ -1,3 +1,7 @@
+<?php 
+  require_once('../../controller/configurations/ctr_verificar_login.php');
+?>
+
 <head>
   <meta charset="utf-8">
   <link href="../css/menu.css" rel="stylesheet">

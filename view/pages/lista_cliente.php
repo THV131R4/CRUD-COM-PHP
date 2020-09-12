@@ -47,7 +47,8 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Nome</th>
-                                    <th>Email</th>
+                                    <th>CPF</th>
+                                    <th>Nascimento</th>
                                     <th class="td-actions">Opções</th>
                                 </tr>
                             </thead>

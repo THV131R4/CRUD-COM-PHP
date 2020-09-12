@@ -33,18 +33,12 @@ function validarCampos(){
         document.getElementById("nome").focus();
         return false;
     }
-/*  
+  
     else if (cpf===''|| cpf === undefined){   
         alert("Prencha o cpf!");
         document.getElementById("cpf").focus();
         return false;
     } 
-
-    // else if ((rg==='' || rg === undefined)){
-    //     alert("Prencha a rg do cliente!");
-    //     document.getElementById("rg").focus();
-    //     return false;
-    // }
 
 
     else if ((dataNascimento==='' || dataNascimento === undefined)){
@@ -60,20 +54,21 @@ function validarCampos(){
         return false;
     }
 
-    else if(localNascimento==='BA' && calcularIdade(dataNascimento)<18){
-        alert('Cadastro recusado, idade inferior ao permitido!');
-        return false;
-    }
 
-    else if(localNascimento==='SP' && rg===''){
+    // else if(localNascimento.trim()==='BA' && calcularIdade(dataNascimento)<18){
+    //     alert('Cadastro recusado, idade inferior ao permitido!');
+    //     return false;
+    // }
+
+    else if(localNascimento.trim()==='SP' && rg===''){
         alert('Preencha RG do cliente!');
         return false;
     }
-*/
+
     else {        
         let novoCliente = criaCliente(idCliente, nome, cpf, rg, 
             dataCadastro, dataModificacao, usuarioCadastro, usuarioModificacao,
-             dataNascimento, telefone, localNascimento);
+            dataNascimento, telefone, localNascimento);
         let endereco = "../../controller/ctr_cadastrar_modificar_cliente.php";
         requisitarCadModCliente(endereco, novoCliente);
     }
@@ -106,9 +101,9 @@ function requisitarCadModCliente(endereco, dados){
         url: endereco,
         data: dados,
         success: function resposta(plainObject, textStatus, jqXHR) {
-            //alert('O procedimento foi um sucesso!');
-            console.log(plainObject);
-            //window.location.href = "../pages/lista_cliente.php";
+            alert('O procedimento foi um sucesso!');
+            //console.log(plainObject);
+            window.location.href = "../pages/lista_cliente.php";
         }
     });
 };
@@ -135,14 +130,9 @@ function listarClientes(clientesParaListar){
         listagemClientes += '<td >'+cliente.idCliente+'</td>';
         listagemClientes += '<td >'+cliente.nome+'</td>';
         listagemClientes += '<td >'+cliente.cpf+'</td>';
-        listagemClientes += '<td >'+cliente.rg+'</td>';
         listagemClientes += '<td >'+cliente.dataNascimento+'</td>';
-        listagemClientes += '<td >'+cliente.localNascimento+'</td>';
-        listagemClientes += '<td >'+cliente.telefone+'</td>';
-        // listagemClientes += '<td >'+cliente.excluido+'</td>';
         listagemClientes += '<td class="td-actions">';                            
         listagemClientes += '<a href="../pages/cad_mod_cliente.php?idCliente='+cliente.idCliente+'" title="Editar" class=""><img src="../images/pencil.svg" width="20px" heigth="20px"/></a>&nbsp;&nbsp;&nbsp;';
-        // listagemClientes += '<a onclick="visualizar('+cliente.idCliente+')" href="#" title="Visualizar" >Detalhes </a>';
         listagemClientes += '<a title="Excluir" onclick="excluir('+cliente.idCliente+')" href="#" class=""><img src="../images/trash.svg" width="30px" heigth="30px"/></a>';                                    
         listagemClientes += ' </td>';
         listagemClientes += '</tr>';

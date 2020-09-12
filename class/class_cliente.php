@@ -189,8 +189,7 @@
 	
 	   public function excluir() {
 	   		$query = "
-	   			UPDATE cliente
-	   			SET excluido = 1
+	   			DELETE FROM cliente
 	   			WHERE id_cliente='".$this->idCliente."';
 	   		";
 			$this->bd->query($query);

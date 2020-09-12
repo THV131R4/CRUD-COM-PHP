@@ -1,6 +1,6 @@
 <?php
   require_once('menu.php');
-  require_once('../../controller/configurations/ctr_carrega_modificacao_cliente.php');
+ //require_once('../../controller/configurations/ctr_carrega_modificacao_cliente.php');
 ?>
 
 <!DOCTYPE html>
