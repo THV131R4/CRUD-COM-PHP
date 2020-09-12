@@ -84,7 +84,7 @@
                 <!-- Button -->
                   <label class="col-md-4 control-label" for="btnSalvar"></label>
                   <div class="col-md-4">
-                    <button id="btnSalvar" name="btnSalvar" class="btn btn-primary" onclick="cad_mod_cliente();">Salvar</button>
+                    <button id="btnSalvar" name="btnSalvar" class="btn btn-primary" type="button" onclick="cad_mod_cliente();">Salvar</button>
                   </div>
                                
             </form>

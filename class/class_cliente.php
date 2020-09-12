@@ -154,13 +154,13 @@
 							'".addslashes($this->dataCadastro)."',
 							'".addslashes($this->dataModificacao)."',
 							'".addslashes($this->usuarioCadastro)."',
-							'".addslashes($this->usuarioModificacao)."',;
+							'".addslashes($this->usuarioModificacao)."',
 							'".addslashes($this->dataNascimento)."',
 							'".addslashes($this->telefone)."',
 							'".addslashes($this->localNascimento)."'
 						);	
 			";
-			//$this->bd->query($query);
+			$this->bd->query($query);
 		}//fecha cadastrar
 
  
@@ -210,8 +210,7 @@
 						data_nascimento,
 						telefone,
 						local_nascimento 
-				FROM cliente
-				WHERE cliente.excluido IS NULL;
+				FROM cliente;
 			";
 			$clientes = $this->bd->query($query);  
 	        $json = '

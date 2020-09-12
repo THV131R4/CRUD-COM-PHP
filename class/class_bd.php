@@ -16,11 +16,11 @@
 		}
 
 		public function query($query){
-			echo "O metodo query esta rebendo a seguinte query: ".$query."<br>";
+			//echo "O metodo query esta rebendo a seguinte query: ".$query."<br>";
 			//echo (empty($query) ? "query vazia!<br>" : "query ocupada!<br>");
 			$query = $this->conexao->prepare($query);
 			if ($query->execute()){
-				return $query;//retorno query
+					return $query;//retorno query
 				//echo "Procedimento feito com sucesso!";
 			} else {
 				//print_r($this->conexao->errorInfo());
