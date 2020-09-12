@@ -1,5 +1,5 @@
 <?php 
-  require_once('../../controller/configurations/ctr_verificar_login.php');
+  // require_once('../../controller/configurations/ctr_verificar_login.php');
 ?>
 
 <head>
