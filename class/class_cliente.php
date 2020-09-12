@@ -222,12 +222,13 @@
 					"nome":"' . $linha['nome'] . '", 
 					"cpf":"' . $linha['cpf'] . '", 
 					"rg":"' . $linha['rg'] . '",
-					"data_modificacao":"' . $linha['dataModificacao'] . '",
-					"usuario_modificacao":"' . $linha['usuarioModificacao'] . '",;
-					"data_nascimento":"' . $linha['dataNascimento'] . '",
+					"dataCadastro":"' . $linha['data_cadastro'] . '",
+					"dataModificacao":"' . $linha['data_modificacao'] . '",
+					"usuarioModificacao":"' . $linha['usuario_modificacao'] . '",
+					"dataNascimento":"' . $linha['data_nascimento'] . '",
 					"telefone":"' . $linha['telefone'] . '",
-					"local_nascimento":"' . $linha['localNascimento'] . '" 
-	            },';
+					"localNascimento":"' . $linha['local_nascimento'] . '" 
+						            },';
 	        }// FECHA while    
 
 	        $json = substr($json, 1, -1);
