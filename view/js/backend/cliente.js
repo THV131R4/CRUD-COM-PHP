@@ -55,10 +55,10 @@ function validarCampos(){
     }
 
 
-    // else if(localNascimento.trim()==='BA' && calcularIdade(dataNascimento)<18){
-    //     alert('Cadastro recusado, idade inferior ao permitido!');
-    //     return false;
-    // }
+    else if(localNascimento.trim()==='BA' && calcularIdade(dataNascimento)<18){
+        alert('Cadastro recusado, idade inferior ao permitido!');
+        return false;
+    }
 
     else if(localNascimento.trim()==='SP' && rg===''){
         alert('Preencha RG do cliente!');
@@ -77,7 +77,8 @@ function validarCampos(){
 
 function criaCliente(pIdCliente, pNome, pCpf, pRg, 
     pDataCadastro, pDataModificacao, pUsuarioCadastro, 
-    pUsuarioModificacao, pDataNascimento, pTelefone, pLocalNascimento
+    pUsuarioModificacao, pDataNascimento, pTelefone, 
+    pLocalNascimento
     ){
     return {
         idCliente: pIdCliente,
@@ -239,5 +240,35 @@ function pesquisar(){
         }
     } else {     
         listarClientes(clientes);   
+    }
+
+    function calcularIdade(dataNascimento){
+        let diaNascimento = dataNascimento.split('-')[2];
+        let mesNascimento = dataNascimento.split('-')[1];
+        let anoNascimento = dataNascimento.split('-')[0];
+        let objDate = new Date();
+        let anoAtual = objDate.getFullYear();
+        let mesAtual = objDate.getMonth() + 1;
+        let diaAtual = objDate.getDate();
+        let idade = anoAtual - anoNascimento;
+
+        if (mesAtual <= mesNascimento 
+            && diaAtual < diaNascimento
+        ) {
+            idade--;
+        }
+        return idade < 0 ? 0 : idade;
+    }
+
+ 
+    function inserirCampoTelefone(){
+       //var quantidadeTelefones++;
+        campoTelefone = '';
+        campoTelefone += '<input id="telefone" name="telefone" type="number" placeholder="Digite telefone do cliente" class="form-control input-md" value="<?php echo isset($linha['+"'telefone'"+'])?$linha['+"'telefone'"+']:'+""+'; ?>">';
+        campoTelefone += '';
+        campoTelefone += '';
+        campoTelefone += '';
+        campoTelefone += '';
+        $("#divTelefone").html(campoTelefone);
     }
 }

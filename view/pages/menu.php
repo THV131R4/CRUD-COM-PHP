@@ -1,14 +1,14 @@
 <?php 
-  // require_once('../../controller/configurations/ctr_verificar_login.php');
+//  require_once('../../controller/configurations/ctr_verificar_login.php');
 ?>
 
 <head>
   <meta charset="utf-8">
+  <script src="../frameworks/bootstrap4/js/bootstrap.min.js"></script>
+  <script src="../frameworks/jquery.js"></script>
   <link href="../css/menu.css" rel="stylesheet">
-  <link href="../css/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../frameworks/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="../css/bootstrap4/js/bootstrap.min.js"></script>
-  <script src="../js/backend/jquery.js"></script>
 </head>
 
 <body>

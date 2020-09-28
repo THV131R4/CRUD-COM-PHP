@@ -27,7 +27,7 @@
                         </label> 
                         <label class="radio-inline" for="vlpesquisa-2">
                           <input type="radio" name="vlpesquisa" id="vlpesquisa-2" value="3">
-                          Email
+                          CPF
                         </label>
                     </div>
                     <input id="textoPesquisa" class="col-md-7" placeholder="Pesquisar cliente..." type='text' onkeyup="pesquisar()"/> 

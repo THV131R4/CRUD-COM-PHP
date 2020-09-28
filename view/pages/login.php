@@ -45,15 +45,7 @@
 					</fieldset>
 					</form>
 
-				<!-- <form action="../../controller/ctr_login.php" method="POST" id="formulario" onsubmit="validarFormulario(); return false;">
-			        <label class="labelPgLogin" for="email">EMAIL </label>
-			        <input type="text" id="email" class="inputPgLogin" name="email" title="Preencha seu usuário aqui" onkeypress="esconderDivAlerta()">
-			        <br>
-			    	<label class="labelPgLogin" for="senha">SENHA</label>
-			        <input type="password" id="senha" class="inputPgLogin" name="senha" title="Preencha sua senha aqui" onkeypress="esconderDivAlerta()">
-			        <br>
-			        <input id="btnAcessar" type="submit" value="Acessar" >
-			    </form> -->
+
 			</div>
 			<div id="alertaErro">
 				<?php

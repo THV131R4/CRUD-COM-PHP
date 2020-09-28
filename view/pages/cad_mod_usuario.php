@@ -50,7 +50,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="btnSalvar"></label>
                   <div class="col-md-4">
-                    <button id="btnSalvar" name="btnSalvar" class="btn btn-primary" onclick="cad_mod_usuario();">Salvar</button>
+                    <input id="btnSalvar" name="btnSalvar" type="button" class="btn btn-primary" onclick="cad_mod_usuario();">Salvar</button>
                   </div>
                 </div>               
             </form>

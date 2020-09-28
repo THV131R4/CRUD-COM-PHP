@@ -68,6 +68,7 @@ function buscarUsuarios(){
         type: "POST",
         url: "../../controller/ctr_listar_excluir_usuario.php",
         success: function (plainObject) {
+            console.log(plainObject);
             let json = JSON.parse(plainObject); 
             usuarios = json.usuario;
             listarUsuarios(usuarios);

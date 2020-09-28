@@ -160,7 +160,7 @@
 							'".addslashes($this->localNascimento)."'
 						);	
 			";
-			$this->bd->query($query);
+			$this->bd->executar($query);
 		}//fecha cadastrar
 
  
@@ -182,7 +182,7 @@
 			";//fecha $query	
 		
 			//echo($query);
-			$this->bd->query($query);
+			$this->bd->executar($query);
 			//header("Location: page.php");
 		}//fecha modificar
 
@@ -192,7 +192,7 @@
 	   			DELETE FROM cliente
 	   			WHERE id_cliente='".$this->idCliente."';
 	   		";
-			$this->bd->query($query);
+			$this->bd->executar($query);
 		}//fecha excluir
 
 
@@ -211,7 +211,7 @@
 						local_nascimento 
 				FROM cliente;
 			";
-			$clientes = $this->bd->query($query);  
+			$clientes = $this->bd->executar($query);  
 	        $json = '
 	            {"cliente":[
 	        ';
@@ -251,7 +251,7 @@
 							FROM cliente 
 			                WHERE id_cliente=" . $this->idCliente . ";
 			        "; //fecha $query 
-			    $dados = $this->bd->query($query);
+			    $dados = $this->bd->executar($query);
 			    $linha = $dados==''?'':$dados->fetch(PDO::FETCH_ASSOC);  
 			    return $linha;
 			}	
