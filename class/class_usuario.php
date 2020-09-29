@@ -1,7 +1,7 @@
 <?php
 	require_once('class_bd.php');
 	
-	class Usuario {
+	class Usuario{
 		private $db,
 			    $idUsuario,
 		 	    $nome,
@@ -10,17 +10,17 @@
 			    $resultSet;
 
 		public function __construct(
-				$idUsuario="", 
-			    $nome="",
-			    $email="",
-			    $senha="",
-			    $resultSet=""
+				$idUsuario = "", 
+			    $nome      = "",
+			    $email     = "",
+			    $senha     = "",
+			    $resultSet = ""
 		){//abre o construtor da classe Usuario
-				$this->bd        = new BD(); //cria objeto bd da classe BD para conectar ao banco
-            	$this->idUsuario = $idUsuario; 
-            	$this->nome      = $nome; 
+				$this->bd        = new BD(); //conectar ao banco
+            	$this->idUsuario = preg_replace('/[^[:alpha:]_]/', '',$idUsuario); 
+            	$this->nome      = preg_replace('/[^[:alpha:]_]/', '',$senha); 
             	$this->email     = $email; 
-            	$this->senha     = $senha; 
+            	$this->senha     = preg_replace('/[^[:alnum:]_]/', '',$senha); 
             	$this->resultSet = $resultSet; 
 
 		}//fecha construtor 
@@ -65,7 +65,7 @@
 			$this->resultSet = $resultSet; 
 		}
 			
-		public function cadastrar() {
+		public function cadastrar(){
 			$this->bd->setQuery("
 				INSERT INTO usuario (
 					nome, 
@@ -82,7 +82,7 @@
 		}//fecha cadastrar
 
  
-		public function modificar() {
+		public function modificar(){
 			if($this->getSenha()==''){
 				$this->bd->setQuery("
 					UPDATE  usuario 
@@ -105,16 +105,18 @@
 					;
 				");
 			}
+
 			$this->bd->executar();
 		}//fecha modificar
 
 	
-	   public function excluir() {
+	   public function excluir(){
 	   		$this->bd->setQuery("
 	   			UPDATE usuario
 	   			SET excluido = 1
 	   			WHERE id_usuario='".$this->getId()."';
 	   		");
+
 			$this->bd->executar();
 		}//fecha excluir
 
@@ -125,20 +127,18 @@
 				FROM usuario
 				WHERE usuario.excluido IS NULL;
 			");
+			
 			$this->setResultSet($this->bd->executar());  
-	        $jsonUsuarios = '
-	            {"usuario":[
-	        ';
+	        $jsonUsuarios = '{"usuario":[';
 
 	        while ($tupla = $this->getResultSet()->fetch(PDO::FETCH_ASSOC)) {
-	            $jsonUsuarios .= '  {"idUsuario":"' . $tupla['id_usuario'] . '",
-	                            "nome":"' . $tupla['nome'] . '",
-
-	                            "email":"' . $tupla['email'] . '"
+	            $jsonUsuarios .= '{ "idUsuario":"'.$tupla['id_usuario'].'",
+	                                "nome":"'	  .$tupla['nome'].'",
+	                            	"email":"'    .$tupla['email'].'"
 	            },';
 	        }// FECHA while    
 
-	        $jsonUsuarios = substr($jsonUsuarios, 1, -1);
+	        $jsonUsuarios = substr($jsonUsuarios, 0, -1);
 	        $jsonUsuarios .= "]}";//fecha jsonUsuarios
 	        echo $jsonUsuarios; 
 		}
@@ -156,7 +156,9 @@
 					AND usuario.senha = '".$this->getSenha()."'
 					AND usuario.excluido IS NULL;
 				");
+			
 				$this->setResultSet($this->bd->executar());
+			
 				$idUsuario = $this->getResultSet()->fetch(PDO::FETCH_ASSOC);
 				if($idUsuario>0) {
 					$_SESSION['usuario'] = $usuario;
@@ -177,8 +179,9 @@
 	                SELECT id_usuario, nome, email FROM usuario 
 	                WHERE id_usuario=" . $this->getId() . ";
 			    ");
+			
 			    $this->setResultSet($this->bd->executar());
-			    $tupla = $this->getResultSet() ==''?'':$this->getResultSet()->fetch(PDO::FETCH_ASSOC);  
+			    $tupla = $this->getResultSet() == ''?'':$this->getResultSet()->fetch(PDO::FETCH_ASSOC);  
 			    return $tupla;
 			}	
 		}
@@ -191,6 +194,7 @@
 					WHERE usuario.email LIKE trim('".$this->getEmail()."') AND 
 					usuario.excluido IS NULL LIMIT 1;
 			");
+			
 			$this->setResultSet($this->bd->executar());
 			$resultSet = $resultSet->fetch(PDO::FETCH_ASSOC);
 			echo $resultSet;

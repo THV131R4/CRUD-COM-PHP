@@ -14,19 +14,19 @@ function cad_mod_usuario() {
 
 function validarCampos(){
 
-    if (nome==='' || nome === undefined ){
+    if (nome ==='' || nome === undefined ){
         alert('Prencha o nome do usuario!');
         document.getElementById("nome").focus();
         return false;
     }
   
-    else if (email===''|| email === undefined){   
+    else if (email ===''|| email === undefined){   
         alert("Prencha o email!");
         document.getElementById("email").focus();
         return false;
     } 
 
-    else if ((senha==='' || senha === undefined) && (idUsuario==='' || idUsuario === undefined)){
+    else if ((senha ==='' || senha === undefined) && (idUsuario ==='' || idUsuario === undefined)){
         alert("Prencha a senha da usuario!");
         document.getElementById("senha").focus();
         return false;
@@ -41,7 +41,7 @@ function validarCampos(){
 
 
 function criaUsuario(pIdUsuario, pNome, pEmail, pSenha){
-    return{
+    return {
         idUsuario: pIdUsuario,
         nome : pNome,
         email: pEmail,
@@ -56,6 +56,7 @@ function requisitarCadModUsuario(endereco, dados){
         url: endereco,
         data: dados,
         success: function resposta(plainObject, textStatus, jqXHR) {
+            //console.log(plainObject);
             alert('O procedimento foi um sucesso!');
             window.location.href = "../pages/lista_usuario.php";
         }
@@ -104,16 +105,17 @@ function visualizar(idUsuario){
         //data: {"idUsuario": idUsuario},
         data: idUsuario,
         success: function resposta(plainObject, textStatus, jqXHR) {
+                //console.log(plainObject);
                 json = JSON.parse(plainObject); 
                 let usuario = json;
                 let modal = '';
                     modal +='<table>';
-                            modal += '<td>' ;
-                                modal += '<tr > Código: '+usuario.idUsuario+'</tr> <br>' ;
-                                modal += '<tr data-title="Name"> Nome: '+usuario.nome+'</tr><br>' ;
-                                modal += '<tr > email: '+usuario.email+'</tr><br>' ;
-                                modal += '<tr data-title="Name"> senha: '+usuario.senha+'</tr><br>' ;
-                            modal += '</td>';
+                    modal += '<td>' ;
+                    modal += '<tr > Código: '+usuario.idUsuario+'</tr> <br>' ;
+                    modal += '<tr data-title="Name"> Nome: '+usuario.nome+'</tr><br>' ;
+                    modal += '<tr > email: '+usuario.email+'</tr><br>' ;
+                    modal += '<tr data-title="Name"> senha: '+usuario.senha+'</tr><br>' ;
+                    modal += '</td>';
                     modal +='</table>';
                     $("#conteudo").html(modal);
         }
@@ -127,7 +129,8 @@ function excluir(usuarioExcluir){
         url: "../../controller/ctr_listar_excluir_usuario.php",
         data: "idUsuario= "+ usuarioExcluir +"&delete=true",
         success: function (plainObject) {
-                alert('Usuario excluído com sucesso!');
+            //console.log(plainObject);
+            alert('Usuario excluído com sucesso!');
         }
     }); 
     
@@ -139,6 +142,7 @@ function excluir(usuarioExcluir){
             break;
         }
     }
+    
     usuarios.splice(posicaoUsuario, 1);
     listarUsuarios(usuarios);
 }

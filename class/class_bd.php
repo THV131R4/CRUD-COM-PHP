@@ -10,14 +10,15 @@
 				$query;
 
 
-		public function __construct($sgdb="",
-				$nomeBanco="", //nome do banco
-				$host="",
-				$usuario="",
-				$senha="",
-				$conexao="",
-				$dsn="",
-				$query=""
+		public function __construct(
+				$sgdb      = "",
+				$nomeBanco = "", //nome do banco
+				$host      = "",
+				$usuario   = "",
+				$senha     = "",
+				$conexao   = "",
+				$dsn       = "",
+				$query     = ""
 		){
 				$this->sgdb  	 = 'mysql';//nome do sgdb
 				$this->nomeBanco = 'proj1';//nome do banco
@@ -27,7 +28,7 @@
 				$this->dsn 		 = $this->sgdb.':dbname='.$this->nomeBanco.';host='.$this->host;
 				$this->query 	 = $query;
 			try {
-			    $this->conexao = new PDO($this->dsn, $this->usuario, $this->senha);
+			    $this->conexao   = new PDO($this->dsn, $this->usuario, $this->senha);
 				$this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			    //echo "Conectado ao banco!<br>";
 			} catch (PDOException $erro) {
@@ -45,20 +46,19 @@
 		}
 
 		public function executar(){
-			//echo "Query a executar: ".$query."<br>";
-			//echo (empty($query) ? "Sem query!<br>" : "Query preenchida!<br>");
-			$query = $this->conexao->prepare($this->getQuery());
-			if ($query->execute()){
-					return $query;//retorno query
+			//echo "EXECUTANDO ESTA QUERY: ".$this->getQuery()."<br>";
+			//echo (empty($this->getQuery()) ? "QUERY VAZIA!<br>" : "QUERY PREENCHIDA!<br>");
+			$stmt = $this->conexao->prepare($this->getQuery());
+			if ($stmt->execute()){
+				return $stmt;//retorno query
 				//echo "Procedimento feito com sucesso!";
 			} else {
-					echo "Procedimento com erros!";
+				echo "Procedimento com erros!";
 				//print_r($this->conexao->errorInfo());
 			}
 		}		
 
-	
-		public function desconectar(){//funçao para desconectar banco
+		public function desconectar(){//desconectar banco
 			$this->conexao = NULL;
 		}
 	}	  
