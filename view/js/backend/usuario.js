@@ -1,14 +1,28 @@
 function cad_mod_usuario() {
-    idUsuario = window.document.getElementById('idUsuario').value;
-    nome = window.document.getElementById('nome').value;
-    email = window.document.getElementById('email').value;
-    senha = window.document.getElementById('senha').value;
+    idUsuario = htmlspecialchars(window.document.getElementById('idUsuario').value);
+    nome = htmlspecialchars(window.document.getElementById('nome').value);
+    email = htmlspecialchars(window.document.getElementById('email').value);
+    senha = htmlspecialchars(window.document.getElementById('senha').value);
    
     validarCampos (idUsuario, 
         nome,
         email,
         senha  
     );
+}
+
+
+function htmlspecialchars(pDado) {
+  let dado = pDado.trim();
+  var mapaCaracteres = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  
+  return dado.replace(/[&<>"']/g, function(m) { return mapaCaracteres[m]; });
 }
 
 

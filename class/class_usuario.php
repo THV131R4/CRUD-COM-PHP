@@ -17,10 +17,10 @@
 			    $resultSet = ""
 		){//abre o construtor da classe Usuario
 				$this->bd        = new BD(); //conectar ao banco
-            	$this->idUsuario = preg_replace('/[^[:alpha:]_]/', '',$idUsuario); 
-            	$this->nome      = preg_replace('/[^[:alpha:]_]/', '',$senha); 
+            	$this->idUsuario = $idUsuario; 
+            	$this->nome      = $senha; 
             	$this->email     = $email; 
-            	$this->senha     = preg_replace('/[^[:alnum:]_]/', '',$senha); 
+            	$this->senha     = $senha; 
             	$this->resultSet = $resultSet; 
 
 		}//fecha construtor 
